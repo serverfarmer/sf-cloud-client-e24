@@ -1,4 +1,5 @@
 <?php
+// https://support.e24cloud.com/API_e24cloud
 
 require_once "sdk-1.6.2/sdk.class.php";
 

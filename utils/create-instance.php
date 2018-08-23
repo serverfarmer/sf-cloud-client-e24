@@ -33,6 +33,8 @@ $ip    = (string)$response->body->instancesSet->item->networkInterfaceSet->item-
 
 if (empty($ip))
 	$host = "-";
+else if (($rev = gethostbyaddr($ip)) !== false)
+	$host = $rev;
 else if (strpos($ip, "178.216.") === false)
 	$host = $ip;
 else
