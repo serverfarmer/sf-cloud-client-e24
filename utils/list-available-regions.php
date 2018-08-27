@@ -4,7 +4,7 @@
 require_once "/opt/farm/ext/cloud-client-e24/internal/include.php";
 
 if ($argc < 2)
-	die("usage: $argv[0] <cloud-account>\n");
+	die("usage: $argv[0] <cloud-account> [--full]\n");
 
 $account = $argv[1];
 
@@ -14,5 +14,9 @@ $response = $e24->describe_regions();
 foreach ($response->body->regionInfo->item as $item) {
 	$region = (string)$item->regionName;
 	$endpoint = (string)$item->regionEndpoint;
-	echo "$region\t$endpoint\n";
+
+	if ($argc > 2 && $argv[2] == "--full")
+		echo "$region\t$endpoint\n";
+	else
+		echo "$region\n";
 }
