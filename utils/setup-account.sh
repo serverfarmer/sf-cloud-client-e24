@@ -28,10 +28,6 @@ export E24_API_SECRET=$API_SECRET
 #
 export E24_REGION=$REGION
 #
-# Ubuntu 18.04 LTS image id:
-#
-export E24_AMI_ID=ami-00000bb7
-#
 # default instance type to use, when type isn't explicitely specified
 #
 export E24_DEFAULT_INSTANCE_TYPE=$DEFAULT_INSTANCE_TYPE

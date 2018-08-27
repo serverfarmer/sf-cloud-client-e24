@@ -8,5 +8,7 @@ elif [ ! -f /etc/local/.cloud/e24/$1.sh ]; then
 	exit 1
 fi
 
-. /etc/local/.cloud/e24/$1.sh
-echo $E24_AMI_ID
+account=$1
+osver="18.04"
+
+/opt/farm/ext/cloud-client-e24/utils/list-images.php $account |grep Ubuntu |grep $osver |tail -n1 |awk '{ print $1 }'

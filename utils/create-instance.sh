@@ -17,4 +17,6 @@ else
 	type=$E24_DEFAULT_INSTANCE_TYPE
 fi
 
-/opt/farm/ext/cloud-client-e24/internal/create-instance.php $account $2 $type $E24_AMI_ID
+ami_id=`/opt/farm/ext/cloud-client-e24/utils/get-ubuntu-image.sh $account`
+
+/opt/farm/ext/cloud-client-e24/internal/create-instance.php $account $2 $type $ami_id
