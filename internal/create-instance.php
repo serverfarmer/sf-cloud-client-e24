@@ -3,20 +3,16 @@
 
 require_once "/opt/farm/ext/cloud-client-e24/internal/include.php";
 
-if ($argc < 3)
-	die("usage: $argv[0] <cloud-account> <ssh-key-name> [instance-type]\n");
+if ($argc < 5)
+	die("usage: $argv[0] <cloud-account> <ssh-key-name> <instance-type> <ami-id>\n");
 
 $account = $argv[1];
 $name = $argv[2];
-
-if ($argc > 3)
-	$type = $argv[3];
-else
-	$type = read_variable($account, "E24_DEFAULT_INSTANCE_TYPE");
+$type = $argv[3];
+$ami_id = $argv[4];
 
 
 $e24 = e24client($account);
-$ami_id = read_variable($account, "E24_AMI_ID");
 $response = $e24->run_instances($ami_id, 1, 1, array(
 	"KeyName" => $name,
 	"InstanceType" => $type,
