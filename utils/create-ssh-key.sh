@@ -19,7 +19,7 @@ fi
 
 /opt/farm/ext/cloud-client-e24/internal/create-ssh-key.php $account $name
 
-if [ ! -f /etc/local/.ssh/id_e24_$key ]; then
-	echo "error: cannot create ssh key $key"
+if [ ! -f /etc/local/.ssh/id_e24_$name ]; then
+	echo "error: cannot create ssh key $name"
 	exit 1
 fi
