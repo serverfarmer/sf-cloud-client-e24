@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "skipping setup (deprecated extension)"
+exit 0
+
 if [ ! -d /usr/share/php/sdk-1.6.2 ]; then
 	echo "installing aws-sdk"
 	mkdir -p /usr/share/php
